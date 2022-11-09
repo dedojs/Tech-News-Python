@@ -17,8 +17,9 @@ def search_by_date(date):
     result = []
     try:
         date_list = date.split('-')
-        new_datetime = datetime(int(date_list[0]), int(date_list[1]),
-                                int(date_list[2]))
+        new_datetime = datetime(
+            int(date_list[0]), int(date_list[1]), int(date_list[2])
+        )
 
         format_date = new_datetime.strftime("%d/%m/%Y")
 
@@ -45,7 +46,9 @@ def search_by_tag(tag):
 
 # Requisito 9
 def search_by_category(category):
-    result_list = search_news({'category': {'$regex': category, '$options': 'i'}})
+    result_list = search_news(
+        {'category': {'$regex': category, '$options': 'i'}}
+    )
     result = []
     for new in result_list:
         result.append((new['title'], new['url']))
