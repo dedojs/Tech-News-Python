@@ -10,6 +10,50 @@ from tech_news.analyzer.ratings import top_5_categories, top_5_news
 
 
 # Requisito 12
+def filter_options2(choice):
+    if (choice == 4):
+        print('Digite a categoria: ')
+        answer = input()
+        return search_by_category(answer)
+
+    elif (choice == 5):
+        return top_5_news()
+
+    elif (choice == 6):
+        return top_5_categories()
+
+    elif (choice == 7):
+        print('Encerrando script')
+
+    else:
+        sys.stderr.write('Opção inválida\n')
+
+
+def filter_options(choice):
+    if (choice == 0):
+        print('Digite quantas notícias serão buscadas: ')
+        answer = int(input())
+        return get_tech_news(answer)
+
+    elif (choice == 1):
+        print('Digite o título: ')
+        answer = input()
+        return search_by_title(answer)
+
+    elif (choice == 2):
+        print('Digite a data no formato aaaa-mm-dd: ')
+        answer = input()
+        return search_by_date(answer)
+
+    elif (choice == 3):
+        print('Digite a tag: ')
+        answer = input()
+        return search_by_tag(answer)
+
+    else:
+        filter_options2(choice)
+
+
 def analyzer_menu():
 
     MENU = (
@@ -24,43 +68,8 @@ def analyzer_menu():
     try:
         option = input()
         choice = int(option)
-        # options_list = [0, 1, 2, 3, 4, 5, 6, 7]
+
     except ValueError:
         sys.stderr.write('Opção inválida\n')
     else:
-        if (choice == 0):
-            print('Digite quantas notícias serão buscadas: ')
-            answer = int(input())
-            return get_tech_news(answer)
-
-        elif (choice == 1):
-            print('Digite o título: ')
-            answer = input()
-            return search_by_title(answer)
-
-        elif (choice == 2):
-            print('Digite a data no formato aaaa-mm-dd: ')
-            answer = input()
-            return search_by_date(answer)
-
-        elif (choice == 3):
-            print('Digite a tag: ')
-            answer = input()
-            return search_by_tag(answer)
-
-        elif (choice == 4):
-            print('Digite a categoria: ')
-            answer = input()
-            return search_by_category(answer)
-
-        elif (choice == 5):
-            return top_5_news()
-
-        elif (choice == 6):
-            return top_5_categories()
-
-        elif (choice == 7):
-            print('Encerrando script')
-
-        else:
-            sys.stderr.write('Opção inválida\n')
+        filter_options(choice)
