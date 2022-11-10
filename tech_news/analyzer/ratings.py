@@ -22,7 +22,7 @@ def top_5_categories():
 
     categories_count = Counter(categories)
     categories_select = categories_count.most_common(5)
-    # erro
+
     for category in categories_select:
         order_categories.append(category[0])
 
