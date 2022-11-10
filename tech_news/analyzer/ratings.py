@@ -1,4 +1,4 @@
-from tech_news.database import db, find_news
+from tech_news.database import db
 from collections import Counter
 
 
@@ -14,16 +14,16 @@ def top_5_news():
 
 # Requisito 11
 def top_5_categories():
-    result_list = find_news()
+    result_list = db.news.find().sort('category', 1)
     categories = []
-    result = []
-    order_cat = []
+    order_categories = []
     for new in result_list:
         categories.append(new['category'])
 
-    resp = Counter(categories)
-    result = resp.most_common(5)
-    for category in result:
-        order_cat.append(category[0])
+    categories_count = Counter(categories)
+    categories_select = categories_count.most_common(5)
 
-    return order_cat
+    for category in categories_select:
+        order_categories.append(category[0])
+
+    return order_categories
