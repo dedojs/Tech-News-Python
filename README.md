@@ -1,6 +1,8 @@
 # :construction: README em construção ! :construction:
 Projeto que tem como principal objetivo fazer consultas em notícias sobre tecnologia.
 
+Utilizando a linguagem Python, foi feita uma raspagem de dados no blog da Trybe. Onde foram coletadas as informações relacionadas a noticias. Essas informações foram inseridas em um banco de dados MongoDb. Foi também desenvolvido um MENU onde podemos manipular o banco, adicionando mais informações, fazer buscar por data, titulo, tag, ou categoria.
+
 As notícias podem ser obtidas através da raspagem do blog da Trybe.
 
 Habilidades utilizadas no projeto:
